@@ -1,0 +1,65 @@
+.report-site-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    .header {
+      position: fixed;
+      top: 0;
+      height: 25vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column nowrap;
+      h1 {
+        color: rgba(212,210,106,1);
+        font-weight: normal;
+        font-size: 2rem;      
+      }
+    }
+    .comments {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-flow: column nowrap;
+      width: 80vw;
+      select {
+        width: 80vw;
+      }
+      textarea {
+        width: 80vw;
+        height: 40vh;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      background-color: rgba(170,167, 57,1);
+      position: fixed;
+      bottom: 0;
+      height: 15vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+        color: rgba(255,253,170,1);
+      h2 {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+
+ba-primary-0 { color: rgba(170,167, 57,1) }	 background
+.rgba-primary-1 { color: rgba(255,253,170,1) } text-primary
+.rgba-primary-2 { color: rgba(212,210,106,1) } text-secondary
+.rgba-primary-3 { color: rgba(128,125, 21,1) } background-secondary
+.rgba-primary-4 { color: rgba( 85, 83,  0,1) }
