@@ -1,0 +1,40 @@
+.register-site-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.8),rgba(123,67,67,.7));
+  .main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    h1 {
+      color: #fff;
+      font-weight: normal;
+      font-size: 2rem;      
+    }
+    form {
+      display: flex;
+      flex-flow: column nowrap; 
+      height: 20vh;
+      justify-content: space-between;
+      input {
+        background: rgba(237,237,237,.2);
+        height: 3vh;
+        width: 80vw;
+      }
+      select {
+        height: 3vh;
+        border-radius: 50%;
+        background: rgba(237,237,237,.2);
+      }
+    }
+    h2 {
+      color: #fff;
+      font-weight: normal;
+    }
+  }
+}
