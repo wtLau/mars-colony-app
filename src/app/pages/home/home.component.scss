@@ -1,0 +1,31 @@
+.site-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0,0,0,.8),rgba(237,67,67,.7)),url(https://upload.wikimedia.org/wikipedia/commons/c/cd/Mars_atmosphere_2.jpg);
+  .main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+    h1 {
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: normal;
+      font-size: 2rem;      
+    }
+    a {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background: rgba(237,237,237,.2);
+      opacity: .2;
+      animation: border-pulse 2s infinite;  
+    }
+    h2 {
+      color: #fff;
+      font-weight: normal;
+    }
+  }
+}
