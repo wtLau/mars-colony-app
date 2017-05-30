@@ -8,8 +8,7 @@
     <div class="encounter-list">
       <ul>
         <li *ngFor="let encounter of encounters">
-          <p>{{ encounter.atype}}</p>
-          <p>{{ encounter.date }}</p>
+          <p>{{ encounter.atype}}, {{ encounter.date }}</p>
           <p>{{ encounter.action }}</p>
         </li>
       </ul>
