@@ -11,9 +11,11 @@
     height: 100vh;
     width: 100vw;
     .header {
+      background-color: #fff;
       position: fixed;
       top: 0;
-      height: 25vh;
+      height: 20vh;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,10 +26,16 @@
         font-size: 2rem;      
       }
     }
-    .comments {
-
+    .encounter-list {
+      height: 65vh;
+      ul {
+        list-style: none;
+        li {
+          display: flex;
+          flex-flow: column nowrap;
+        }
+      }
     }
-
     a {
       text-decoration: none;
       background-color: rgba(170,167, 57,1);
