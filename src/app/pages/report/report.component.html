@@ -8,19 +8,9 @@
     <form class="comments">
       <select name="select-oppucation">
         <option value="default" selected>Select Alien Type</option>
-        <option value="dark-vader">Dark Vader</option>
-        <option value="terminator">The Terminator</option>
-        <option value="leesin">The Blind Lee Sin</option>
-        <option value="predator">The Predator</option>
-        <option value="xmen">X-Men</option>
-        <option value="et">ET</option>
-        <option value="et">ET</option>
-        <option value="et">ET</option>
-        <option value="et">ET</option>
-        <option value="et">ET</option>
-        <option value="et">ET</option>
+        <option *ngFor="let alien of aliens"> {{ aliens[0].type }} </option>
       </select>
-      <textarea rows="12123" cols=""></textarea>
+      <textarea></textarea>
     </form>
 
     <a href="">
