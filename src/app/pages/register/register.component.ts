@@ -4,7 +4,14 @@ import { JOBService } from '../../services/register.service';
 
 import { Colonist } from '../../models/colonist';
 import { ColonistService } from '../../services/colonist.service';
-import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+  ValidatorFn,
+  AbstractControl
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +23,8 @@ export class RegisterComponent implements OnInit {
 
   jobs: Job[] = [];
   colonist: Colonist;
+  registerForm: FormGroup;
+  NO_JOB_SELECTED = '(none)';
 
   constructor
   (
@@ -25,11 +34,24 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
+
     this.JOBService.getData()
         .subscribe((data) => {
           console.log(data);
           this.jobs = data.jobs;
         });
+
+    this.registerForm = new FormGroup ({
+      name: new FormControl(
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(100),
+          Validators.minLength(3)
+        ]),
+      age: new FormControl( '', [Validators.required]),
+      job_id: new FormControl( 'this.NO_JOB_SELECTED', [] ),
+    })
   };
 
   postColonist() {

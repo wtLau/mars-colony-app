@@ -2,13 +2,14 @@
     <main class="main-content">
         <h1>Register</h1>
 
-        <form class="register-form">
+        <form class="register-form" [formGroup]="registerForm" (ngSubmit)>
             <fieldset>
-                <input type="text" placeholder="Enter your name" />
-                <input type="number" placeholder="Enter your age" />
-                <select>
-    <option value="1">Select an occupation</option>
-  </select>
+                <input type="text" placeholder="Enter your name" formControlName="name" />
+                <input type="number" placeholder="Enter your age" formControlName="age" />
+                <select required formControlName="job_id">
+                    <option [value]="NO_JOB_SELECTED">Select an occupation</option>
+                    <option *ngFor="let job of jobs" [value]="job.id">{{ job.name }}</option>
+                </select>
             </fieldset>
             <button type="submit">Register</button>
         </form>
