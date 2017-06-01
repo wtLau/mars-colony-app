@@ -25,5 +25,4 @@ export class EncountersService {
   handleError() {
     console.log('There was an error');
   }
-
 }

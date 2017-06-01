@@ -1,20 +1,18 @@
 <section class="report-site-content">
-  <main class="main-content">
-    <div class="header">
-      <h1>Recent Encounter</h1>
-      <p>Safety on Mars is your responsibility</p>
-    </div>  
+    <main class="main-content">
+        <div class="header">
+            <h1>Recent Encounter</h1>
+            <p>Safety on Mars is your responsibility</p>
+        </div>
 
-    <form class="comments">
-      <select name="select-oppucation">
+        <form class="comments">
+            <select name="select-oppucation">
         <option value="default" selected>Select Alien Type</option>
-        <option *ngFor="let alien of aliens"> {{ aliens[0].type }} </option>
+        <option *ngFor="let alien of aliens"> {{ alien.type }} </option>
       </select>
-      <textarea></textarea>
-    </form>
+            <textarea></textarea>
+        </form>
 
-    <a href="">
-      <h1>Submit Report</h1>
-    </a>
-  </main>  
+        <button (click)="postReport()">Submit Report</button>
+    </main>
 </section>

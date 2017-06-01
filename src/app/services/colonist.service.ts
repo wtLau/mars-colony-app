@@ -4,24 +4,24 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Report } from '../models/report';
+import { Colonist } from '../models/colonist';
 
 @Injectable()
-export class ReportService {
-  private REPORT_URL = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
+export class ColonistService {
+  private COLONIST_URL = 'https://red-wdp-api.herokuapp.com/api/mars/colonists';
 
     constructor(private http: Http) { }
 
-    postData(report) {
+    postData(colonist) {
       const headers = new Headers ({ 'Content-Type': 'application/json' });
       const options = new RequestOptions({ headers });
-      return this.http.post(this.REPORT_URL, {report}, options)
+      return this.http.post(this.COLONIST_URL, {colonist}, options)
                       .map(this.extractData);
     }
 
     extractData(res: Response) {
-      const report = res.json();
-      return report;
+      const colonist = res.json();
+      return colonist;
     }
 
     handleError() {

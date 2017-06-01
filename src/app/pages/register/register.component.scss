@@ -1,44 +1,52 @@
 .register-site-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,.8),rgba(212,210,106,1));
-  .main-content {
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    height: 90vh;
-    width: 100vw;
-    h1 {
-      color: #fff;
-      font-weight: normal;
-      font-size: 2rem;      
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(212, 210, 106, 1));
+    .main-content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 90vh;
+        width: 100vw;
+        h1 {
+            color: #fff;
+            font-weight: normal;
+            font-size: 2rem;
+        }
+        form {
+            display: flex;
+            flex-flow: column nowrap;
+            height: 20vh;
+            justify-content: space-between;
+            input {
+                background: rgba(237, 237, 237, .2);
+                height: 2rem;
+                width: 80vw;
+                border: none;
+            }
+            select {
+                height: 2rem;
+                border-radius: 50%;
+                background: rgba(237, 237, 237, .2);
+            }
+        }
+        button {
+            text-decoration: none;
+            background-color: transparent;
+            border: none;
+            h2 {
+                color: #fff;
+                font-weight: normal;
+            }
+        }
+        button:focus {
+            outline: none;
+        }
+        button:hover {
+            cursor: pointer;
+        }
     }
-    form {
-      display: flex;
-      flex-flow: column nowrap; 
-      height: 20vh;
-      justify-content: space-between;
-      input {
-        background: rgba(237,237,237,.2);
-        height: 2rem;
-        width: 80vw;
-        border: none;
-      }
-      select {
-        height: 2rem;
-        border-radius: 50%;
-        background: rgba(237,237,237,.2);
-      }
-    }
-    a {
-      text-decoration: none;
-      h2 {
-        color: #fff;
-        font-weight: normal;
-      }
-    }
-  }
 }
