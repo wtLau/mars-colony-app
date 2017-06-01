@@ -4,6 +4,7 @@ import { JOBService } from '../../services/register.service';
 
 import { Colonist } from '../../models/colonist';
 import { ColonistService } from '../../services/colonist.service';
+import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'app-register',

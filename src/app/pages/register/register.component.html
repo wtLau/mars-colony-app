@@ -1,14 +1,25 @@
 <section class="register-site-content">
     <main class="main-content">
         <h1>Register</h1>
-        <form>
-            <input type="text" name="name" value="Name">
-            <input type="text" name="age" value="Age">
-            <select name="select-oppucation">
-        <option value="default" selected>Select Oppucation</option>
-        <option value="{{ job.name }}" *ngFor="let job of jobs">{{ job.name }}</option>
-      </select>
+
+        <form class="register-form">
+            <fieldset>
+                <input type="text" placeholder="Enter your name" />
+                <input type="number" placeholder="Enter your age" />
+                <select>
+    <option value="1">Select an occupation</option>
+  </select>
+            </fieldset>
+            <button type="submit">Register</button>
         </form>
-        <button (click)="postColonist()">Check in</button>
+        <!--<form>
+        <input type="text" name="name" value="Name">
+        <input type="text" name="age" value="Age">
+        <select name="select-oppucation">
+    <option value="default" selected>Select Oppucation</option>
+    <option value="{{ job.name }}" *ngFor="let job of jobs">{{ job.name }}</option>
+  </select>
+    </form>
+    <button (click)="postColonist()">Check in</button>-->
     </main>
 </section>
