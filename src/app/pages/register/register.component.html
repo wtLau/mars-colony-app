@@ -2,25 +2,32 @@
     <main class="main-content">
         <h1>Register</h1>
 
-        <form class="register-form" [formGroup]="registerForm" (ngSubmit)>
+        <form class="register-form" [formGroup]="registerForm" (ngSubmit)="register($event)">
             <fieldset>
-                <input type="text" placeholder="Enter your name" formControlName="name" />
-                <input type="number" placeholder="Enter your age" formControlName="age" />
-                <select required formControlName="job_id">
-                    <option [value]="NO_JOB_SELECTED">Select an occupation</option>
-                    <option *ngFor="let job of jobs" [value]="job.id">{{ job.name }}</option>
-                </select>
+                <input type="text" placeholder="Enter your name" required formControlName="name" />
+                <input type="number" placeholder="Enter your age" required formControlName="age" />
+                <select required formControlName="job_id" style="margin: 1rem;">
+                <option [value]="NO_JOB_SELECTED">Select an occupation</option>
+                <option *ngFor="let job of jobs" [value]="job.id">{{ job.name }}</option>
+            </select>
             </fieldset>
-            <button type="submit">Register</button>
+            <button type="submit" [disabled]="registerForm.invalid">Register</button>
         </form>
-        <!--<form>
-        <input type="text" name="name" value="Name">
-        <input type="text" name="age" value="Age">
-        <select name="select-oppucation">
-    <option value="default" selected>Select Oppucation</option>
-    <option value="{{ job.name }}" *ngFor="let job of jobs">{{ job.name }}</option>
-  </select>
-    </form>
-    <button (click)="postColonist()">Check in</button>-->
+
     </main>
 </section>
+<!--
+<div class="page">
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="register($event)">
+        <fieldset>
+            <input type="text" placeholder="Enter your name" required formControlName="name" />
+            <input type="number" placeholder="Enter your age" required formControlName="age" />
+            <select required formControlName="job_id" style="margin: 1rem;">
+        <option [value]="NO_JOB_SELECTED">Select an occupation</option>
+        <option *ngFor="let job of jobs" [value]="job.id">{{ job.name }}</option>
+      </select>
+        </fieldset>
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+        <p>{{ registerForm }}</p>
+    </form>
+</div>-->
