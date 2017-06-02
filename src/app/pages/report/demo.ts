@@ -1,3 +1,10 @@
+import { Component, OnInit } from '@angular/core';
+import { Job } from '../../models/job';
+import { JOBService } from '../../services/register.service';
+
+import { Colonist } from '../../models/colonist';
+import { ColonistService } from '../../services/colonist.service';
+
 import {
   FormGroup,
   FormControl,
@@ -27,24 +34,30 @@ const age = (tooYoung: number, tooOld: number): ValidatorFn => {
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers: [ColonistService]
+  providers: [JOBService, ColonistService]
 })
 export class RegisterComponent implements OnInit {
 
+  jobs: Job[] = [];
   colonist: Colonist;
   registerForm: FormGroup;
-  jobs: Job[];
   NO_JOB_SELECTED = 'no job';
 
-  constructor(private colonistService: ColonistService) {
-    this.jobs = [
-      { id: '1', name: 'Front-End Developer', description: '$$$' },
-      { id: '2', name: 'Back-End Developer', description: '$$' },
-      { id: '3', name: 'Both-End Developer', description: '$' }
-    ];
-  }
+  constructor
+  (
+    private JOBService: JOBService,
+    private colonistService: ColonistService
+  ) {}
+
 
   ngOnInit() {
+
+    this.JOBService.getData()
+        .subscribe((data) => {
+          console.log(data);
+          this.jobs = data.jobs;
+        });
+
     this.registerForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
@@ -54,7 +67,15 @@ export class RegisterComponent implements OnInit {
       age: new FormControl('', [Validators.required, age(16, 35)]),
       job_id: new FormControl(this.NO_JOB_SELECTED, [cantBe(this.NO_JOB_SELECTED)])
     });
-  }
+  };
+
+  // postColonist() {
+  //   const colonist = new Colonist('Brian', '44', '4');
+  //   this.colonistService.postData(colonist)
+  //                       .subscribe((newColonist) => {
+  //                         console.log(newColonist);
+  //                       });
+  // };
 
   register(e) {
     e.preventDefault();
@@ -66,9 +87,6 @@ export class RegisterComponent implements OnInit {
       const job_id = this.registerForm.get('job_id').value;
 
       const colonist = new Colonist(name, age, job_id);
-      console.log('WIN!', colonist);
-
-
     }
   }
 }

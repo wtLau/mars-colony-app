@@ -1,18 +1,21 @@
-<!--<section class="report-site-content">
+<section class="report-site-content">
     <main class="main-content">
+
         <div class="header">
             <h1>Recent Encounter</h1>
             <p>Safety on Mars is your responsibility</p>
         </div>
 
-        <form class="comments">
-            <select name="select-oppucation">
-              <option value="default" selected>Select Alien Type</option>
-              <option *ngFor="let alien of aliens"> {{ alien.type }} </option>
-            </select>
-            <textarea></textarea>
-        </form>
+        <form class="comments" [formGroup]="reportForm" (ngSubmit)="report($event)">
+            <fieldset>
+                <select required formControlName="alien_id" style="margin: 1rem;">
+                    <option [value]="NO_JOB_SELECTED">Select an Alien</option>
+                    <option *ngFor="let alien of aliens" [value]="alien.id" >{{ alien.type }}</option>
+                </select>
 
-        <button (click)="postReport()">Submit Report</button>
+                <textarea placeholder="Action Taken"></textarea>
+            </fieldset>
+            <button type="submit" [disabled]="reportForm.invalid">Register</button>
+        </form>
     </main>
-</section>-->
+</section>

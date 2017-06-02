@@ -5,6 +5,20 @@ import { AlienService } from '../../services/alien.service';
 import { Report } from '../../models/report';
 import { ReportService } from '../../services/report.service';
 
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+  ValidatorFn,
+  AbstractControl
+} from '@angular/forms';
+
+const cantBe = (value: string): ValidatorFn => {
+  return (control: AbstractControl) => {
+      return control.value === value ? { 'Cant\'be this value': value } : null;
+  };
+};
 
 @Component({
   selector: 'app-aliens',
@@ -16,18 +30,25 @@ export class ReportComponent implements OnInit {
 
   aliens: Alien[] = [];
   report: Report;
+  reportForm: FormGroup;
+  NO_ALIEN_SELECTED = "no alien";
+
 
   constructor
   (
     private alienService: AlienService,
     private reportService: ReportService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.alienService.getData()
       .subscribe((data) => {
         this.aliens = data.aliens;
       });
+
+    this.reportForm = new FormGroup({
+      alien_id: new FormControl(this.NO_ALIEN_SELECTED, [cantBe(this.NO_ALIEN_SELECTED)])
+    });
   }
 
   postReport() {
@@ -37,4 +58,14 @@ export class ReportComponent implements OnInit {
                         console.log(newReport);
                       });
   };
+
+  register(e) {
+    e.preventDefault();
+    if (this.reportForm.invalid) {
+      // the form is invalid
+    } else {
+      const alien_id = this.reportForm.get('aliens').value;
+      // const colonist = new Colonist(name, age, job_id);
+    }
+  }
 }
