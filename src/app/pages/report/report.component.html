@@ -6,16 +6,17 @@
             <p>Safety on Mars is your responsibility</p>
         </div>
 
-        <form class="comments" [formGroup]="reportForm" (ngSubmit)="report($event)">
+        <form class="comments" [formGroup]="reportForm" (ngSubmit)="reported($event)">
             <fieldset>
                 <select required formControlName="alien_id" style="margin: 1rem;">
-                    <option [value]="NO_JOB_SELECTED">Select an Alien</option>
-                    <option *ngFor="let alien of aliens" [value]="alien.id" >{{ alien.type }}</option>
+                    <option [value]="NO_ALIEN_SELECTED">Select an Alien</option>
+                    <option *ngFor="let alien of aliens" [value]="alien.type" >{{ alien.type }}</option>
                 </select>
 
-                <textarea placeholder="Action Taken"></textarea>
+                <textarea formControlName="action" placeholder="Action Taken"></textarea>
             </fieldset>
-            <button routerLink="/encounters" type="submit" [disabled]="reportForm.invalid">Register</button>
+
+            <button [disabled]="reportForm.invalid" type="submit">Register</button>
         </form>
     </main>
 </section>

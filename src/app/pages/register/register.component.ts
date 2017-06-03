@@ -5,6 +5,9 @@ import { JOBService } from '../../services/register.service';
 import { Colonist } from '../../models/colonist';
 import { ColonistService } from '../../services/colonist.service';
 
+import { Router } from '@angular/router';
+
+
 import {
   FormGroup,
   FormControl,
@@ -46,7 +49,9 @@ export class RegisterComponent implements OnInit {
   constructor
   (
     private JOBService: JOBService,
-    private colonistService: ColonistService
+    private colonistService: ColonistService,
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
 
@@ -54,7 +59,6 @@ export class RegisterComponent implements OnInit {
 
     this.JOBService.getData()
         .subscribe((data) => {
-          console.log(data);
           this.jobs = data.jobs;
         });
 
@@ -69,13 +73,6 @@ export class RegisterComponent implements OnInit {
     });
   };
 
-  // postColonist() {
-  //   const colonist = new Colonist('Brian', '44', '4');
-  //   this.colonistService.postData(colonist)
-  //                       .subscribe((newColonist) => {
-  //                         console.log(newColonist);
-  //                       });
-  // };
 
   register(e) {
     e.preventDefault();
@@ -87,6 +84,16 @@ export class RegisterComponent implements OnInit {
       const job_id = this.registerForm.get('job_id').value;
 
       const colonist = new Colonist(name, age, job_id);
-    }
+
+      console.log(colonist);
+
+      this.colonistService.postData(colonist)
+                          .subscribe((newColonist) => {
+                            window.localStorage.setItem(
+                              'userID', newColonist.colonist.id);
+                            this.router.navigate(['encounters']);
+                          });
+
+      }
   }
 }

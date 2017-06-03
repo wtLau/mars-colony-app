@@ -5,6 +5,8 @@ import { AlienService } from '../../services/alien.service';
 import { Report } from '../../models/report';
 import { ReportService } from '../../services/report.service';
 
+import { Router } from '@angular/router';
+
 import {
   FormGroup,
   FormControl,
@@ -31,13 +33,15 @@ export class ReportComponent implements OnInit {
   aliens: Alien[] = [];
   report: Report;
   reportForm: FormGroup;
-  NO_ALIEN_SELECTED = "no alien";
+  NO_ALIEN_SELECTED = 'no alien';
 
 
   constructor
   (
     private alienService: AlienService,
-    private reportService: ReportService
+    private reportService: ReportService,
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -47,25 +51,35 @@ export class ReportComponent implements OnInit {
       });
 
     this.reportForm = new FormGroup({
-      alien_id: new FormControl(this.NO_ALIEN_SELECTED, [cantBe(this.NO_ALIEN_SELECTED)])
+      alien_id: new FormControl(this.NO_ALIEN_SELECTED, [cantBe(this.NO_ALIEN_SELECTED)]),
+      action: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(100),
+        Validators.minLength(3)
+      ]),
     });
   }
 
-  postReport() {
-  const report = new Report('Octospider', '2017-5-29', 'web developer', '4');
-  this.reportService.postData(report)
-                      .subscribe((newReport) => {
-                        console.log(newReport);
-                      });
-  };
 
-  register(e) {
+  reported(e) {
     e.preventDefault();
     if (this.reportForm.invalid) {
       // the form is invalid
     } else {
-      const alien_id = this.reportForm.get('aliens').value;
-      // const colonist = new Colonist(name, age, job_id);
+      const atype = this.reportForm.get('alien_id').value;
+      const action = this.reportForm.get('action').value;
+      const date = new Date;
+      const prettyDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
+      const report_id = window.localStorage.userID;
+      const report = new Report(atype, prettyDate, action, report_id);
+      console.log(report);
+
+      this.reportService.postData(report)
+                          .subscribe((data) => {
+                            this.router.navigate(['encounters']);
+                          });
     }
   }
+
+
 }
