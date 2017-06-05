@@ -2,27 +2,38 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.6.
 
-## Development server
+## Objectives
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+-Create a web-based application for Earth colonists exploring Mars using Angular 2.
 
-## Code scaffolding
+## Technology Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+- HTML5
+- CSS
+- CSS3
+- SCSS
+- javaScript
+- jQuery (http://jquery.com)
+- Visual Studio Code (https://code.visualstudio.com/)
+- Google Chrome (https://www.google.com/chrome/)
+- Google Chrome Developer Tools
+- GitHub (https://github.com/)
+- Font Awesome (http://fontawesome.io/)
+- Font Squirrel (https://www.fontsquirrel.com/)
+- Angular2
+- Angular CLI
+- Toogle Pesticle (Google Chrome Extension)
+- TypeScript
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## What I learned
 
-## Running unit tests
+- My understand more indepth of Angular syntax such as class, decorator, inteface and component.
+- Create a ngForm and validate user input, and prevent forms from sending invalid API requests.
+- Implementing Angular built-in directives such as ngFor, ngIf, ngClass, and ngModel.
+- Maintain a healthy version control by consistenly add and commits to GitHub.
+- Use ng-serve for running build tasks, such as minification and error checking
+- When the user submits the registration form, the API will return a Colonist object in the response to the POST request, save object using localStorage, and retrieve it later.
+- Send a colonist ID when POST-ing an encounter
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
