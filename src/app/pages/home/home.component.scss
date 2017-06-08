@@ -1,36 +1,37 @@
 .home-site-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,.8),rgba(212,210,106,1));
-  .main-content {
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    height: 90vh;
-    h1 {
-      text-transform: uppercase;
-      color: #fff;
-      font-weight: normal;
-      font-size: 2rem;      
+    height: 100vh;
+    background: url(/assets/Mars_Op.jpg) no-repeat;
+    background-size: cover;
+    width: 100vw;
+    .main-content {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 90vh;
+        h1 {
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: normal;
+            font-size: 4rem;
+        }
+        a {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background: rgba(11, 237, 237, .5);
+            opacity: .2;
+            animation: border-pulse 2s infinite;
+        }
+        h2 {
+            color: #fff;
+            font-weight: normal;
+        }
     }
-    a {
-      width: 5rem;
-      height: 5rem;
-      border-radius: 50%;
-      background: rgba(237,237,237,.2);
-      opacity: .2;
-      animation: border-pulse 2s infinite;  
-    }
-    h2 {
-      color: #fff;
-      font-weight: normal;
-    }
-  }
 }
-
 
 // .rgba-primary-0 { color: rgba(170,167, 57,1) }	/* Main Primary color */
 // .rgba-primary-1 { color: rgba(255,253,170,1) }

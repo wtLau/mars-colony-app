@@ -1,12 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-body, html, .site-content {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  font-size: 16px;
-  font-family: "Arial", Helvetica, sans-serif;
+
+body,
+html,
+.site-content {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Diplomata', cursive, "Arial", Helvetica, sans-serif;
 }
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
 }
