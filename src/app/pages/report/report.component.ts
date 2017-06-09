@@ -7,6 +7,8 @@ import { ReportService } from '../../services/report.service';
 
 import { Router } from '@angular/router';
 
+import { slideInOutAnimation } from '../../animations/animation';
+
 import {
   FormGroup,
   FormControl,
@@ -26,7 +28,9 @@ const cantBe = (value: string): ValidatorFn => {
   selector: 'app-aliens',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss'],
-  providers: [AlienService, ReportService]
+  providers: [AlienService, ReportService],
+  animations: [slideInOutAnimation],
+  host: { '[@slideInOutAnimation]': '' }
 })
 export class ReportComponent implements OnInit {
 

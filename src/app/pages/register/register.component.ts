@@ -7,6 +7,8 @@ import { ColonistService } from '../../services/colonist.service';
 
 import { Router } from '@angular/router';
 
+import { slideInOutAnimation } from '../../animations/animation';
+
 
 import {
   FormGroup,
@@ -37,7 +39,9 @@ const age = (tooYoung: number, tooOld: number): ValidatorFn => {
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers: [JOBService, ColonistService]
+  providers: [JOBService, ColonistService],
+  animations: [slideInOutAnimation],
+  host: { '[@slideInOutAnimation]': '' }
 })
 export class RegisterComponent implements OnInit {
 
