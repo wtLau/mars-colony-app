@@ -1,52 +1,63 @@
-.register-site-content {
+  .register-site-content {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, .8), rgba(212, 210, 106, 1));
+    background: url(/assets/0f044e2325425feafc707427a1038ba8.jpg) no-repeat;
+    background-size: cover;
     .main-content {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      align-items: center;
+      height: 90vh;
+      width: 100vw;
+      h1 {
+        color: #fff;
+        font-weight: normal;
+        font-size: 4rem;
+      }
+      form {
         display: flex;
         flex-flow: column nowrap;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        height: 90vh;
-        width: 100vw;
-        h1 {
-            color: #fff;
-            font-weight: normal;
-            font-size: 4rem;
-        }
-        form {
-            display: flex;
-            flex-flow: column nowrap;
-            height: 20vh;
-            justify-content: space-between;
-            input {
-                background: rgba(237, 237, 237, .2);
-                height: 2rem;
-                width: 80vw;
-                border: none;
+        height: 30vh;
+        fieldset {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          height: 25vh;
+          input {
+            background: rgba(237, 237, 237, .5);
+            height: 2rem;
+            width: 80vw;
+            border-radius: 10px;
+            margin-top: .3rem;
+            padding-left: 1rem;
+            border: none;
+            color: white;
+            &::placeholder {
+              color: #fff;
             }
-            select {
-                height: 2rem;
-                border-radius: 50%;
-                background: rgba(237, 237, 237, .2);
-            }
+          }
+          select {
+            height: 2rem;
+            border-radius: 10px;
+            background: rgba(237, 237, 237, .5);
+          }
         }
-        //     button {
-        //         text-decoration: none;
-        //         background-color: transparent;
-        //         border: none;
-        //         h2 {
-        //             color: #fff;
-        //             font-weight: normal;
-        //         }
-        //     }
-        //     button:focus {
-        //         outline: none;
-        //     }
-        //     button:hover {
-        //         cursor: pointer;
-        //     }
+        button {
+          color: #fff;
+          border-radius: 30px;
+          border: none;
+          height: 3rem;
+          width: 10rem;
+          font-size: 1rem;
+          text-transform: uppercase;
+          background: rosybrown;
+        }
+      }
     }
-}
+  }

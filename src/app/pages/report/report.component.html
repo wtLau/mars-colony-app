@@ -1,22 +1,22 @@
 <section class="report-site-content">
-    <main class="main-content">
+  <main class="main-content">
 
-        <div class="header">
-            <h1>Recent Encounter</h1>
-            <p>Safety on Mars is your responsibility</p>
-        </div>
+    <div class="header">
+      <h1>Recent Encounter</h1>
+      <p>Safety on Mars is your responsibility</p>
+    </div>
 
-        <form class="comments" [formGroup]="reportForm" (ngSubmit)="reported($event)">
-            <fieldset>
-                <select required formControlName="alien_id" style="margin: 1rem;">
-                    <option [value]="NO_ALIEN_SELECTED">Select an Alien</option>
-                    <option *ngFor="let alien of aliens" [value]="alien.type" >{{ alien.type }}</option>
-                </select>
+    <form class="comments" [formGroup]="reportForm" (ngSubmit)="reported($event)">
+      <fieldset>
+        <select required formControlName="alien_id" style="margin: 1rem;">
+            <option [value]="NO_ALIEN_SELECTED">Select an Alien</option>
+            <option *ngFor="let alien of aliens" [value]="alien.type" >{{ alien.type }}</option>
+        </select>
 
-                <textarea formControlName="action" placeholder="Action Taken"></textarea>
-            </fieldset>
+        <textarea formControlName="action" placeholder="Action Taken"></textarea>
+      </fieldset>
 
-            <button [disabled]="reportForm.invalid" type="submit">Register</button>
-        </form>
-    </main>
+      <button [disabled]="reportForm.invalid" type="submit">Register</button>
+    </form>
+  </main>
 </section>
